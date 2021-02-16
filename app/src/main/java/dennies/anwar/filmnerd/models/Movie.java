@@ -1,5 +1,13 @@
 package dennies.anwar.filmnerd.models;
 
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+
+import com.bumptech.glide.GlideBuilder;
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,4 +53,6 @@ public class Movie {
     public String getOverview() {
         return overview;
     }
+
+
 }
