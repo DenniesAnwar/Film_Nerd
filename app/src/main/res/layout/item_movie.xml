@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/black"
+    android:id="@+id/movieContainer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#292828">
 
     <ImageView
         android:id="@+id/ivPoster"
@@ -17,13 +18,13 @@
         android:layout_width="279dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="7dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:fontFamily="@font/adamina"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="24sp"
         android:textColor="@color/white"
+        android:textSize="24sp"
         tools:text="Wonder Woman" />
 
     <TextView
@@ -31,9 +32,10 @@
         android:layout_width="253dp"
         android:layout_height="82dp"
         android:layout_below="@+id/tvTitle"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:textColor="@color/white"
         tools:text="Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah." />
+
 </RelativeLayout>

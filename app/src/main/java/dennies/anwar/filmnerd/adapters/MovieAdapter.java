@@ -1,12 +1,14 @@
 package dennies.anwar.filmnerd.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,8 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
+import dennies.anwar.filmnerd.DetailActivity;
 import dennies.anwar.filmnerd.R;
 import dennies.anwar.filmnerd.models.Movie;
 
@@ -56,6 +61,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        RelativeLayout movieContainer;
         TextView tvTitle;
         TextView tvOverview;
         ImageView ivPoster;
@@ -65,6 +71,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
+            movieContainer = itemView.findViewById(R.id.movieContainer);
         }
 
         public void bind(Movie movie) {
@@ -82,6 +89,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             }
 
             Glide.with(context).load(imageUrl).into(ivPoster);
+
+            // Register click listener on the whole container
+            // Navigate to a new activity on tap
+            movieContainer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, DetailActivity.class);
+                    i.putExtra("movie", Parcels.wrap(movie));
+
+                    context.startActivity(i);
+                }
+            });
         }
     }
 }
