@@ -46,6 +46,8 @@ dependencies {
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
 
+    //cardview
+    implementation "androidx.cardview:cardview:1.0.0"
 
 
 }

@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".DetailActivity"
     android:background="#292828"
+    android:gravity="center_horizontal"
     >
 
     <com.google.android.youtube.player.YouTubePlayerView
@@ -21,14 +22,18 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         tools:text="Wonder Woman 1984"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+
+        />
 
     <TextView
         android:id="@+id/tvReleaseDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        tools:text="2020-12-16" />
+        tools:text="2020-12-16"
+
+        />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -36,7 +41,8 @@
         android:layout_height="wrap_content"
         android:isIndicator="true"
         android:numStars="5"
-        android:rating="9.5" />
+        android:rating="9.5"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/tvOverview"

@@ -1,6 +1,8 @@
 package dennies.anwar.filmnerd;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +20,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import dennies.anwar.filmnerd.adapters.MovieAdapter;
 import dennies.anwar.filmnerd.models.Movie;
 import okhttp3.Headers;
 
@@ -30,7 +36,11 @@ public class DetailActivity extends YouTubeBaseActivity {
     TextView tvOverview;
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
-    TextView tvreleaseDate;
+    TextView tvReleaseDate;
+
+    //Scroll Movies
+    List<Movie> movies;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +51,14 @@ public class DetailActivity extends YouTubeBaseActivity {
         tvOverview = findViewById(R.id.tvOverview);
         ratingBar = findViewById(R.id.ratingBar);
         youTubePlayerView = findViewById(R.id.player);
-        tvreleaseDate = findViewById(R.id.tvReleaseDate);
+        tvReleaseDate = findViewById(R.id.tvReleaseDate);
 
 
         Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         ratingBar.setRating((float)movie.getRating() / 2);
-        tvreleaseDate.setText(movie.getReleaseDate());
+        tvReleaseDate.setText(movie.getReleaseDate());
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(String.format(VIDEOS_URL, movie.getMovieId()), new JsonHttpResponseHandler() {
