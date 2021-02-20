@@ -23,6 +23,9 @@
         android:textSize="30sp"
         tools:text="Wonder Woman 1984"
         android:textColor="@color/white"
+        android:transitionName="title_transition"
+        android:fontFamily="@font/adamina"
+        android:gravity="center_horizontal"
 
         />
 
@@ -32,7 +35,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         tools:text="2020-12-16"
-
+        android:gravity="center_horizontal"
         />
 
     <RatingBar
@@ -42,13 +45,19 @@
         android:isIndicator="true"
         android:numStars="5"
         android:rating="9.5"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"
+        />
 
     <TextView
         android:id="@+id/tvOverview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        tools:text="Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah" />
+        tools:text="Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah"
+        android:gravity="center_horizontal"
+        android:transitionName="blurb_transition"
+
+        />
 
 </LinearLayout>

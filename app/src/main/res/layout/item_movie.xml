@@ -29,7 +29,9 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/white"
         android:textSize="24sp"
-        tools:text="Wonder Woman" />
+        tools:text="Wonder Woman"
+        android:transitionName="title_transition"
+        />
 
     <TextView
         android:id="@+id/tvOverview"
@@ -40,6 +42,8 @@
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:textColor="@color/white"
-        tools:text="Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah." />
+        tools:text="Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah."
+        android:transitionName="blurb_transition"
+        />
 
 </RelativeLayout>

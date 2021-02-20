@@ -1,9 +1,11 @@
 package dennies.anwar.filmnerd.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -21,6 +25,7 @@ import org.parceler.Parcels;
 import java.util.List;
 
 import dennies.anwar.filmnerd.DetailActivity;
+import dennies.anwar.filmnerd.MainActivity;
 import dennies.anwar.filmnerd.R;
 import dennies.anwar.filmnerd.models.Movie;
 
@@ -97,10 +102,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 public void onClick(View v) {
                     Intent i = new Intent(context, DetailActivity.class);
                     i.putExtra("movie", Parcels.wrap(movie));
+                    // Seamless transition
+                    Pair<View, String> p1 = Pair.create((View) tvTitle, "title_transition");
+                    Pair<View, String> p2 = Pair.create((View) tvTitle, "title_transition");
 
-                    context.startActivity(i);
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, tvTitle, ViewCompat.getTransitionName(tvTitle));
+
+
+                    context.startActivity(i, options.toBundle());
                 }
             });
+
+
         }
     }
 }
