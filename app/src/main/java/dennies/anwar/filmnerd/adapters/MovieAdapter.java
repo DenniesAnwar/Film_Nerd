@@ -104,7 +104,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                     i.putExtra("movie", Parcels.wrap(movie));
                     // Seamless transition
                     Pair<View, String> p1 = Pair.create((View) tvTitle, "title_transition");
-                    Pair<View, String> p2 = Pair.create((View) tvTitle, "title_transition");
+                    Pair<View, String> p2 = Pair.create((View) tvTitle, "blurb_transition");
 
                     ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, tvTitle, ViewCompat.getTransitionName(tvTitle));
 
